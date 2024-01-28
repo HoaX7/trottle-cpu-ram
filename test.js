@@ -1,3 +1,5 @@
 const { startSimulation } = require("./app");
 
-startSimulation()
+setInterval(() => {
+    startSimulation()
+}, 5000)

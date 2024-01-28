@@ -3,11 +3,13 @@ const os = require('os');
 // Function to simulate CPU usage
 function simulateCpuUsage() {
   const start = Date.now();
-  const durationMs = 5000; // Simulate CPU load for 5 seconds
+  const durationMs = 2000; // Simulate CPU load for 5 seconds
 
   while (Date.now() - start < durationMs) {
     // Perform a CPU-intensive task
-    const result = Math.sqrt(Math.random() * Math.random());
+    for (let i = 0; i < 100000; i++) {
+      Math.sqrt(Math.random() * Math.random());
+    }
   }
 
   console.log('CPU simulation complete');
@@ -44,7 +46,8 @@ module.exports.startSimulation = () => {
   const freeMemoryPercentage = freeMemory / totalMemory;
   console.log({ freeMemoryPercentage })
   if (freeMemoryPercentage > 0.2) {
-    simulateMemoryUsage();
+    // simulateMemoryUsage();
+    console.log("done-- no memory test")
   } else {
     console.log('Free memory is low. Skipping memory simulation.');
   }
